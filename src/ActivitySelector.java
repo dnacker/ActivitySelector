@@ -7,13 +7,16 @@ public class ActivitySelector {
     private List<Activity> result;
 
     public ActivitySelector(List<Activity> activities) {
-        this.activities = activities;
+        this.activities = new ArrayList<>();
+        for (Activity a: activities) {
+            this.activities.add(new Activity(a));
+        }
+        Sorting.mergeSort(this.activities);
         result = new ArrayList<>();
         solve();
     }
 
     private void solve() {
-        Collections.sort(activities);
         int curr = activities.size() - 1;
         result.add(activities.get(curr));
         while (curr >= 0) {
@@ -33,4 +36,12 @@ public class ActivitySelector {
         return result;
     }
 
+    public void printResults() {
+        System.out.println("Number of activities selected: " + result.size());
+        System.out.print("Activities: ");
+        for (Activity a: result) {
+            System.out.print(a.number + " ");
+        }
+        System.out.println();
+    }
 }

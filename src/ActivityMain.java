@@ -7,8 +7,12 @@ import java.util.List;
 public class ActivityMain {
     public static void main(String[] args) {
         List<ActivitySelector> problems = readFile("act.txt");
+        int probNumber = 1;
         for (ActivitySelector s: problems) {
-            System.out.println(s.getResult());
+            System.out.println("Set " + probNumber);
+            s.printResults();
+            probNumber++;
+            System.out.println();
         }
     }
 

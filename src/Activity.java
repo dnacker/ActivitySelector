@@ -8,6 +8,12 @@ public class Activity implements Comparable<Activity> {
         end = e;
     }
 
+    public Activity(Activity a) {
+        number = a.number;
+        start = a.start;
+        end = a.end;
+    }
+
     public int compareTo(Activity other) {
         return this.start - other.start;
     }
