@@ -3,7 +3,10 @@ import java.util.List;
 
 public class Sorting {
     public static <T extends Comparable<T>> void mergeSort(List<T> list) {
-        List<T> workArr = new ArrayList<T>(list.size());
+        List<T> workArr = new ArrayList<>(list.size());
+        for (int i = 0; i < list.size(); i++) {
+            workArr.add(null);
+        }
         mergeSortHelper(list, workArr, 0, list.size() - 1);
     }
 
